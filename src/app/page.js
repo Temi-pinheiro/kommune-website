@@ -20,7 +20,7 @@ export const metadata = {
     authors: ['Devinhio'],
     images: [
       {
-        url: 'https://res.cloudinary.com/dwvxxjgfm/image/upload/v1761604410/Kommune/logo_r1dflj.png', // Must be an absolute URL
+        url: 'https://res.cloudinary.com/dwvxxjgfm/image/upload/v1761604415/Kommune/icon_av7uv7.png', // Must be an absolute URL
         width: 800,
         height: 600,
       },
