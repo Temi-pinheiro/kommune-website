@@ -29,13 +29,13 @@ export async function POST(req) {
 }
 
 export async function GET() {
-  const { count, error } = await supabase
-    .from('waitlist')
-    .select('*', { count: 'exact', head: true });
+  const data = await supabase.from('waitlist_count').select('total').single();
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 400 });
+  console.log(data.data);
+
+  if (data.error) {
+    return NextResponse.json({ error: data.error?.message }, { status: 400 });
   }
 
-  return NextResponse.json({ success: true, count });
+  return NextResponse.json({ success: true, count: data.data.total });
 }
