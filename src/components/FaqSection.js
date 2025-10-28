@@ -6,7 +6,7 @@ export default function FaqSection() {
   const faqs = [
     {
       title: 'What is kommunne ?',
-      text: 'Kommune is building an online community that allows everyone share ideas, knowledge and also render services to people within their immediate local community ',
+      text: 'Kommunne is building an online community that allows everyone share ideas, knowledge and also render services to people within their immediate local community ',
     },
     {
       title: 'Who is Kommunne for ?',

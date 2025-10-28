@@ -69,7 +69,7 @@ export default function Home() {
               />
               <h1 className='font-bold text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] lg:mt-[9.8rem] xl:mt-[10.75rem] lg:leading-[100%] xl:leading-[120%]'>
                 Build community. <br />
-                Join Kommune
+                Join Kommunne
               </h1>
               <p className='font-medium lg:text-lg text-[#5D5E5D] lg:mt-5'>
                 Be the first to know when Kommunne launches
