@@ -1,17 +1,11 @@
 'use client';
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
-import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { motion } from 'motion/react';
 import axios from 'axios';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
+import { supabase } from '@/config/supabase';
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState('');
