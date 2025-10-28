@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Nunito } from 'next/font/google';
 import WaitlistForm from '@/components/WaitlistForm';
+import FaqSection from '@/components/FaqSection';
 const nunito = Nunito({
   variable: '--font-nunito',
   subsets: ['latin'],
@@ -66,7 +67,7 @@ export default function Home() {
                 src='/logo.svg'
                 className='w-[228px] max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-[140px]'
               />
-              <h1 className='font-bold text-[2.5rem] lg:text-[4rem] lg:mt-[10.75rem] lg:leading-[120%]'>
+              <h1 className='font-bold text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] lg:mt-[9.8rem] xl:mt-[10.75rem] lg:leading-[100%] xl:leading-[120%]'>
                 Build community. <br />
                 Join Kommune
               </h1>
@@ -109,6 +110,7 @@ export default function Home() {
         </section>
         <section id='faqs' className='flex flex-col items-center py-[4.6rem]'>
           <h2 className='font-bold text-[3.5rem] leading-[120%]'>FAQs</h2>
+          <FaqSection />
         </section>
       </main>
       <footer
