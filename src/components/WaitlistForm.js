@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { motion } from 'motion/react';
 import axios from 'axios';
-import { supabase } from '@/config/supabase';
+
+const MY_COUNT = 100;
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState('');
@@ -29,7 +30,8 @@ export default function WaitlistForm() {
         }
       );
       toast.success("You're on the list!");
-      setEmail(null);
+      getCount();
+      setEmail('');
     } catch (e) {
       const { error } = e.response.data;
       toast(error, {
@@ -40,30 +42,28 @@ export default function WaitlistForm() {
     setLoading(false);
   };
 
+  const getCount = async () => {
+    try {
+      const { data } = await axios.get(
+        '/api/waitlist',
+
+        {
+          'Content-Type': 'application/json',
+        }
+      );
+
+      setCount(data.count ?? MY_COUNT);
+    } catch (error) {
+      console.log(error);
+      setCount(MY_COUNT);
+    }
+  };
+
   useEffect(() => {
-    // Initial fetch
-    const getCount = async () => {
-      const { count } = await supabase
-        .from('waitlist')
-        .select('*', { count: 'exact', head: true });
-      setCount(count ?? 0);
-    };
     getCount();
 
-    // Subscribe for realtime updates
-    const channel = supabase
-      .channel('waitlist-changes')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'waitlist' },
-        () => {
-          getCount(); // refresh count on any change
-        }
-      )
-      .subscribe();
-
     return () => {
-      supabase.removeChannel(channel);
+      setCount(MY_COUNT);
     };
   }, []);
 
