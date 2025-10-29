@@ -45,7 +45,7 @@ export const metadata = {
     images: [
       'https://res.cloudinary.com/dwvxxjgfm/image/upload/v1761604410/Kommune/logo_r1dflj.png',
     ],
-    creator: '@temi_dev',
+    creator: '@ndmhjt',
   },
   bookmarks: ['https://kommunne.com'],
 };
